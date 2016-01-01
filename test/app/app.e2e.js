@@ -10,7 +10,7 @@ describe('App', function() {
 
   it('should have a title', function() {
     var subject = browser.getTitle();
-    var result  = 'Angular2 Webpack Starter by @gdi2990 from @AngularClass';
+    var result  = 'Chat Application';
     expect(subject).toEqual(result);
   });
 
@@ -28,7 +28,7 @@ describe('App', function() {
 
   it('should have <footer>', function() {
     var subject = element(by.deepCss('app /deep/ footer')).getText();
-    var result  = 'WebPack Angular 2 Starter by @AngularClass';
+    var result  = "Home\n(current)\nFeatures\nPricing\nAbout";
     expect(subject).toEqual(result);
   });
 

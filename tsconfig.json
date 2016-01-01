@@ -14,7 +14,6 @@
     "test/sanity-test.spec.ts",
     "src/app/app.spec.ts",
     "src/app/directives/x-large.spec.ts",
-    "src/app/providers/title.spec.ts",
     "src/bootstrap.ts",
     "src/vendor.ts",
     "src/polyfills.ts"

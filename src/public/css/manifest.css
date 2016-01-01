@@ -1,0 +1,11 @@
+/*html {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+*/
+
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
