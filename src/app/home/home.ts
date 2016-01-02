@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
+import {FORM_DIRECTIVES, NgFor} from 'angular2/common';
 import {Http} from 'angular2/http';
 
 // import {Title} from '../providers/title';
 
 @Component({
   selector: 'home',
-  directives: [ ...FORM_DIRECTIVES ],
+  directives: [NgFor],
   // providers: [ Title ],
   pipes: [ ],
   styles: [ require('./home.css') ],

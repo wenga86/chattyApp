@@ -1,15 +1,33 @@
+/// <reference path="../../typings/main.d.ts" />
+
 /*
  * Angular 2 decorators and services
  */
 import {Component} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http} from 'angular2/http';
-import {FORM_PROVIDERS} from 'angular2/common';
 
-import {XLarge} from './directives/x-large';
+/*
+ * Injectables
+ */
+import {servicesInjectables} from "./services/services";
+import {utilInjectables} from "./util/util";
+
+/*
+ * Services
+ */
+import {
+MessagesService,
+ThreadsService,
+UserService
+} from './services/services';
+
+import {ChatExampleData} from './ChatExampleData';
+
+
+// DIRECTIVES
 import {Home} from './home/home';
 import {Dashboard} from './dashboard/dashboard';
-
 /*
  * App Component
  * Top Level Component
@@ -20,10 +38,10 @@ import {Dashboard} from './dashboard/dashboard';
   // where, in this case, selector is the string 'app'
   selector: 'app', // <app></app>
   // We need to tell Angular's Dependency Injection which providers are in our app.
-  providers: [ ...FORM_PROVIDERS],
+  providers: [],
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
-  directives: [ ...ROUTER_DIRECTIVES, XLarge ],
+  directives: [ ...ROUTER_DIRECTIVES],
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [],
   // Our list of styles in our component. We may add more to compose many styles together
@@ -68,7 +86,7 @@ import {Dashboard} from './dashboard/dashboard';
 
     <footer class="pos-f-b">
       <div class="container-fluid">
-        <nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
+        <nav class="navbar navbar-light bg-faded">
           <ul class="nav navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" [routerLink]=" ['Home'] ">Home <span class="sr-only">(current)</span></a>
@@ -94,7 +112,10 @@ import {Dashboard} from './dashboard/dashboard';
   { path: '/dashboard', component: Dashboard, name: 'Dashboard' }
 ])
 export class App {
-  constructor() {
+    constructor(public messagesService: MessagesService,
+                public threadsService: ThreadsService,
+                public userService: UserService) {
+    ChatExampleData.init(messagesService, threadsService, userService);
   }
 }
 

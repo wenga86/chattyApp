@@ -16,6 +16,12 @@ import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 import {App} from './app/app';
 
 /*
+ * Injectables
+ */
+import {servicesInjectables} from "./app/services/services";
+import {utilInjectables} from "./app/util/util";
+
+/*
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
@@ -25,6 +31,8 @@ function main() {
     // These are dependencies of our App
     HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
+    servicesInjectables,
+    utilInjectables,
     ELEMENT_PROBE_PROVIDERS // remove in production
   ])
   .catch(err => console.error(err));
